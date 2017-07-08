@@ -20,3 +20,6 @@ execute "normal! 0dG"
 " at least make a passing attempt at standards conformance
 execute "normal! ggi<html>\<CR><body>\<CR>"
 execute "normal! G$i></body>\<CR></html>\<ESC>x"
+
+" trim some more fat
+g/src="http:\/\/memphisdrumshop/d
