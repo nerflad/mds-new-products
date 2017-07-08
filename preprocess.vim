@@ -16,3 +16,7 @@ execute "normal! 0dG"
 
 " delete leading whitespace
 %s/^\s*//g
+
+" at least make a passing attempt at standards conformance
+execute "normal! ggi<html>\<CR><body>\<CR>"
+execute "normal! G$i></body>\<CR></html>\<ESC>x"

@@ -6,6 +6,7 @@ fetchPage() {
     vim -E -c "source preprocess.vim" -c "wq" new-products.html > /dev/null;
 }
 
+
 if [ -e new-products.html ]; then
    mv new-products.html new-products.html.old;
    fetchPage;
@@ -15,6 +16,10 @@ else
     fetchPage;
 fi
 
-if [ -n '$nothingNew' ]; then
+if [[ $nothingNew -eq 1 ]]; then
     echo No new products.
+    exit 0
+else
+    mutt -e 'set content_type=text/html' -s 'ALERT: MyCymbal.com has uploaded new products'\
+    "$1" <new-products.html
 fi
