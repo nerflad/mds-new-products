@@ -1,8 +1,8 @@
 retab
 
-" delete everything north of 3964
-3964
-execute "normal! dgg"
+" delete header
+execute "normal! /ma-main-container\<CR>"
+execute "normal! 0dgg"
 
 " delete trailing whitespace
 %s/\s\+$//g
