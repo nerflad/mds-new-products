@@ -20,7 +20,5 @@ if [[ $nothingNew -eq 1 ]]; then
     echo No new products.
     exit 0
 else
-    for i in $(< email_list); do
-        ./send-email.py $i
-    done
+    ./send-email.py
 fi
