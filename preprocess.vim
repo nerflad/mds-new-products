@@ -21,5 +21,6 @@ execute "normal! 0dG"
 execute "normal! ggi<html>\<CR><body>\<CR>"
 execute "normal! G$i></body>\<CR></html>\<ESC>x"
 
-" trim some more fat
+" strip images to minimize bandwidth consumptiono
+" (sometimes there are like, 75 images that need to be requested)
 g/src="http:\/\/memphisdrumshop/d
