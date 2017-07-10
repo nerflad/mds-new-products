@@ -8,8 +8,11 @@ from email.mime.text import MIMEText
 recipients = []
 
 with open('credentials', 'r') as _file:
-    username = str(_file.readline())
-    password = str(_file.readline())
+    _lines = [str(e).strip('\n') for e in _file]
+    server = _lines[0]
+    port = _lines[1]
+    username = _lines[2]
+    password = _lines[3]
 
 with open('new-products.html', 'r') as _file:
     _message = _file.read()
@@ -18,7 +21,7 @@ with open('email_list', 'r') as _file:
     recipients = [e.strip('\n') for e in _file]
 
 
-session=smtplib.SMTP('smtp.gmail.com', 587)
+session=smtplib.SMTP(server, port)
 session.ehlo()
 session.starttls()
 session.login(username, password)
