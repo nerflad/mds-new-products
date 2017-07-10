@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 
+import datetime
 import os
 import sys
 import smtplib
@@ -30,6 +31,6 @@ for message_to in recipients:
     msg['Subject'] = 'ALERT: New Cymbals detected on mycymbal.com'
     msg = msg.as_string()
     session.sendmail(username, message_to, msg)
-    print('Emailed', message_to)
+    print(str(datetime.datetime.now()), ':\tEmailed ', message_to, sep='')
 
 session.quit()

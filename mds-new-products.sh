@@ -19,7 +19,7 @@ else
 fi
 
 if [[ $nothingNew -eq 1 ]]; then
-    echo No new products.
+    echo -e $(date +%x_%H:%M:%S:%N | sed 's/...$//'):\t No new products.
     exit 0
 else
     ./send-email.py
