@@ -20,6 +20,7 @@ if [[ $nothingNew -eq 1 ]]; then
     echo No new products.
     exit 0
 else
-    mutt -e 'set content_type=text/html' -s 'ALERT: MyCymbal.com has uploaded new products'\
-    "$1" <new-products.html
+    for i in $(< email_list); do
+        ./send-email.py $i
+    done
 fi
