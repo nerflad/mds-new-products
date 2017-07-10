@@ -39,6 +39,7 @@ g/class="add-to-links"/normal 4dd
 g/class="old-price"/normal 5dd
 g/Special\sPrice/d
 %s/Model\s\#\s//g
+g/In\sStock/d
 " not a typo, it's really called bradcrumbs :)
 execute "normal! /ma-bradcrumbs\<CR>"
 normal 13dd
