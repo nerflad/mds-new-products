@@ -6,6 +6,17 @@ import sys
 import smtplib
 from email.mime.text import MIMEText
 
+def timeString():
+    return str(datetime.datetime.now())
+
+if not os.path.exists('email-list'):
+    print(timeString(), ':\tERROR: email-list not found.', sep='')
+    quit(1)
+
+if not os.path.exists('credentials'):
+    print(timeString(), ':\tERROR: credentials not found.', sep='')
+    quit(1)
+
 with open('credentials', 'r') as _file:
     _lines = [str(e).strip('\n') for e in _file]
     server = _lines[0]
@@ -31,6 +42,6 @@ for message_to in recipients:
     msg['Subject'] = 'ALERT: New Cymbals detected on mycymbal.com'
     msg = msg.as_string()
     session.sendmail(username, message_to, msg)
-    print(str(datetime.datetime.now()), ':\tEmailed ', message_to, sep='')
+    print(timeString(), ':\tEmailed ', message_to, sep='')
 
 session.quit()
