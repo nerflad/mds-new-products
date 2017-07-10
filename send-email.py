@@ -15,9 +15,8 @@ with open('credentials', 'r') as _file:
 with open('new-products.html', 'r') as _file:
     _message = _file.read()
 
-with open('email_list', 'r') as _file:
+with open('email-list', 'r') as _file:
     recipients = [e.strip('\n') for e in _file]
-
 
 session=smtplib.SMTP(server, port)
 session.ehlo()
