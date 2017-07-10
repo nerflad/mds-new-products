@@ -1,11 +1,9 @@
-#!/usr/bin/python
+#!/usr/bin/env python3
 
 import os
 import sys
 import smtplib
 from email.mime.text import MIMEText
-
-recipients = []
 
 with open('credentials', 'r') as _file:
     _lines = [str(e).strip('\n') for e in _file]

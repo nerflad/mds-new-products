@@ -6,7 +6,6 @@ fetchPage() {
     vim -E -c "source preprocess.vim" -c "wq" new-products.html > /dev/null;
 }
 
-
 if [ -e new-products.html ]; then
    mv new-products.html new-products.html.old;
    fetchPage;

@@ -1,6 +1,6 @@
 retab
 
-" delete header
+" delete everything north of main div (basically just the header)
 execute "normal! /ma-main-container\<CR>"
 execute "normal! 0dgg"
 
@@ -21,6 +21,6 @@ execute "normal! 0dG"
 execute "normal! ggi<html>\<CR><body>\<CR>"
 execute "normal! G$i></body>\<CR></html>\<ESC>x"
 
-" strip images to minimize bandwidth consumptiono
+" strip images to minimize bandwidth consumption
 " (sometimes there are like, 75 images that need to be requested)
 g/src="http:\/\/memphisdrumshop/d
