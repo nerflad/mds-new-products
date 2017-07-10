@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# change to project directory, in case the script is being run by cron or something
+cd "${0%/*}"
+
 fetchPage() {
     curl -s -S -A "Mozilla/5.0 (X11; Linux x86_64; rv:54.0) Gecko/20100101 Firefox/54.0" \
         memphisdrumshop.com/new-products > new-products.html;
