@@ -6,4 +6,4 @@ changed.
 - bash
 - curl
 - python
-- vim
+- vim (TODO: revert this total hack and use an HTML parsing library)
