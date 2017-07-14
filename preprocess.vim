@@ -1,5 +1,8 @@
 retab
 
+"remove windows line endings
+%s/\r//g
+
 " delete everything north of main div (basically just the header)
 execute "normal! /ma-main-container\<CR>"
 normal 0dgg
