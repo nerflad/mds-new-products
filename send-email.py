@@ -39,7 +39,7 @@ for message_to in recipients:
     msg = MIMEText(_message, 'html')
     msg['To'] = message_to
     msg['From'] = username
-    msg['Subject'] = 'ALERT: New Cymbals detected on mycymbal.com'
+    msg['Subject'] = 'MyCymbal Digest'
     msg = msg.as_string()
     session.sendmail(username, message_to, msg)
     print(timeString(), ':\tEmailed ', message_to, sep='')
