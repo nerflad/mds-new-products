@@ -12,7 +12,7 @@ fetchPage() {
 if [ -e new-products.html ]; then
    mv new-products.html new-products.html.old;
    fetchPage;
-   diff new-products.html new-products.html.old && nothingNew=1
+   diff new-products.html new-products.html.old >/dev/null && nothingNew=1
    rm new-products.html.old
 else
     fetchPage;
