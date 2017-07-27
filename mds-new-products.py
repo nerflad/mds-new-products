@@ -40,8 +40,7 @@ def get_email_list():
 # ------------------------------------------------------------------------------
 if os.path.isfile('items.html'):
     with open('items.html', 'r') as _file:
-        stale_page = _file.read(None)
-    stale_soup = BeautifulSoup(stale_page, 'html.parser')
+        stale_soup = BeautifulSoup(_file.read(None), 'html.parser')
     stale_items = bs4_resultset_to_strings(stale_soup.find_all('li', class_='item'))
 else:
     stale_items = []
