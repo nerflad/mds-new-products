@@ -4,7 +4,5 @@ changed.
 
 ### Depends
 - bash
-- curl
 - python
 - beautifulsoup (sudo pip install bs4)
-- vim (TODO: revert this total hack and use an HTML parsing library)
