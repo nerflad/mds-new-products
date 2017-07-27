@@ -52,7 +52,7 @@ items = bs4_resultset_to_strings(soup.find_all('li', class_='item'))
 
 # update items.html, don't bother if the items are exactly the same
 if not stale_items == items:
-    with open('items.html', 'r+') as _file:
+    with open('items.html', 'w+') as _file:
         for i in items:
             _file.write(i)
     print(time_string(), ':\tUpdated items.html.', sep='')
