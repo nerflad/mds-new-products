@@ -46,6 +46,7 @@ else:
     stale_items = []
 
 page = urllib.request.urlopen("http://memphisdrumshop.com/new-products").read()
+page = page.decode("utf-8")
 soup = BeautifulSoup(page, 'html.parser')
 items = bs4_resultset_to_strings(soup.find_all('li', class_='item'))
 
