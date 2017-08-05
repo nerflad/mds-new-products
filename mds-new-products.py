@@ -10,7 +10,7 @@ import urllib.request
 
 def bs4_resultset_to_strings(list_):
     for i,x in enumerate(list_):
-        list_[i] = str(x)
+        list_[i] = "".join((str(x), '\n'))
     return list_
 
 def time_string():
