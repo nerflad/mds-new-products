@@ -9,9 +9,10 @@ import sys
 import urllib.request
 
 def bs4_resultset_to_strings(list_):
-    for i,x in enumerate(list_):
-        list_[i] = "".join((str(x), '\n'))
-    return list_
+    new_list = []
+    for i in list_:
+        new_list.append("".join((str(i), '\n')))
+    return new_list
 
 def time_string():
     return str(datetime.datetime.now())[:19]
