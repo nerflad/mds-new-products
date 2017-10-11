@@ -8,6 +8,13 @@ import os
 import sys
 import urllib.request
 
+def filter_bad_tags(soup_):
+    # these classes contain unique identifiers, so will trigger false positives.
+    bad_classes = ("link-wishlist", "link-compare", "product-list-button")
+    for i in bad_classes:
+        [tag.extract() for tag in soup_.find_all(class_=i)]
+    return soup_
+
 def bs4_resultset_to_strings(list_):
     new_list = []
     for i in list_:
@@ -40,15 +47,18 @@ def get_email_list():
 #       check for new products
 # ------------------------------------------------------------------------------
 if os.path.isfile('items.html'):
-    with open('items.html', 'r') as _file:
+    with open('items.html', 'r', encoding='utf-8') as _file:
         stale_soup = BeautifulSoup(_file.read(None), 'html.parser')
+    stale_soup = filter_bad_tags(stale_soup)
     stale_items = bs4_resultset_to_strings(stale_soup.find_all('li', class_='item'))
 else:
+    print(time_string(), ':\tWarning: stale_items is empty.', sep='')
     stale_items = []
 
 page = urllib.request.urlopen("http://memphisdrumshop.com/new-products").read()
 page = page.decode("utf-8")
 soup = BeautifulSoup(page, 'html.parser')
+soup = filter_bad_tags(soup)
 items = bs4_resultset_to_strings(soup.find_all('li', class_='item'))
 
 # update items.html, don't bother if the items are exactly the same
