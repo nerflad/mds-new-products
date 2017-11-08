@@ -70,7 +70,7 @@ if not stale_items == items:
 
 new_items = [x for x in items if x not in stale_items]
 
-if not new_items:
+if new_items == []:
     print(time_string(), ':\tNo new products.', sep='')
     quit(0)
 
